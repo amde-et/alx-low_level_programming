@@ -1,27 +1,31 @@
-#include<stdio.h>
-
-int main()
+#include <stdio.h>
+/**
+ * main - main function
+ *
+ * Return: nothing
+ */
+int main(void)
 {
-   unsigned long long n, first = 0, second = 1, next, c;
+	int counter = 2;
 
-   printf("Enter the number of terms\n");
-   scanf("%d",&n);
+	float a = 1;
+	float b = a + 1;
+	float c = a + b;
 
-   printf("First %d terms of Fibonacci series are :-\n",n);
-
-   for ( c = 0 ; c < n ; c++ )
-   {
-      if ( c <= 1 )
-         next = c;
-      else
-      {
-         next = first + second;
-         first = second;
-         second = next;
-      }
-      printf("%d\n",next);
-   }
-
-   return 0;
+	printf("%.0f, ", a);
+	printf("%.0f, ", b);
+	while (counter < 98)
+	{
+		counter++;
+		printf("%.0f", c);
+		a = b;
+		b = c;
+		c = a + b;
+		if (counter < 98)
+		{
+			printf(", ");
+		}
+	}
+	printf("\n");
+	return (0);
 }
-
