@@ -1,7 +1,9 @@
 #include "main.h"
 /**
- 
- */
+* here 
+*i
+*try
+*/
 int _strcmp(char *s1, char *s2)
 {
 	int counter, cmpVal;
