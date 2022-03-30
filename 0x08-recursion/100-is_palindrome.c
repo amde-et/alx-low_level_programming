@@ -1,45 +1,55 @@
 #include "main.h"
 /**
-  *helperFunction - returns 0 or 1.
-  *@num: number being checked.
-  *@i: possible factor of the number.
-  *
-  *Return: 0 if not prime, 1 if prime.
-  */
-int helperFunction(int num, int i)
+ *_strlen_recursion - returns lenght of a string.
+ *@s: pointer to string.
+ *
+ *Return: lenght of string.
+ */
+int _strlen_recursion(char *s)
 {
-	if (i < num)
+	if (*s)
 	{
-		if (num % i == 0)
-		{
-			return (0);
-		}
-		else
-		{
-			return (helperFunction(num, i + 1));
-		}
+		return (1 + _strlen_recursion(s + 1));
 	}
-	else
-	{
-		return (1);
-	}
+	return (0);
 }
 
 /**
-  *is_prime_number - checks if number is prime or not.
-  *@n: number to be checked.
+  *helperFunction - check if palindrome.
+  *@s: pointer to string.
+  *@fi: first index.
+  *@li: lastIndex.
   *
-  *Return: 1 if number is prime.
-  *0 if number is not prime.
+  *Return: 0 if not palindrome, 1 if palindrome.
   */
-int is_prime_number(int n)
+int helperFunction(char *s, int fi, int li)
 {
-	if (n <= 1)
+	if (fi < li && s[fi] == s[li])
+	{
+		return (helperFunction(s, fi + 1, li - 1));
+	}
+	if (s[fi] != s[li])
 	{
 		return (0);
 	}
-	else
-	{
-		return (helperFunction(n, 2));
-	}
+	return (1);
+}
+
+/**
+  *is_palindrome - checks if string is palindrome or not.
+  *@s: pointer to string.
+  *
+  *Return: 1 if string is palindrome 0 if not.
+  */
+int is_palindrome(char *s)
+{
+	int fi, li;
+
+	fi = 0;
+	li = _strlen_recursion(s) - 1;
+
+	if (!*s)
+		return (1);
+
+	return (helperFunction(s, fi, li));
 }
