@@ -4,7 +4,6 @@
 /**
  *list_len-print lenght of data
  *@h:list
- *Return:list len
  */
 size_t list_len(const list_t *h)
 {

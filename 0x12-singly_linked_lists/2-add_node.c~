@@ -16,7 +16,7 @@ unsigned int s = 0;
 list_t *new;
 while (str[s])
 s++;
-
+ 
 new = malloc(sizeof(list_t));
 
 
